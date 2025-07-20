@@ -27,47 +27,56 @@ Add the following to your `Package.swift` file:
 ```swift
 dependencies: [
     .package(url: "https://github.com/ademanuele/GenSON.git", from: "1.0.0")
-]```
+]
+```
 
 Then import it in your code:
 
-```import GenSON
+```swift
+import GenSON
 ```
 
 ## 🚀 Usage
 
 Generate JSON for a Type
 
-```struct User: Decodable {
+```swift
+struct User: Decodable {
     let id: String
     let name: String
     let isActive: Bool
 }
 
 let json: String = try User.generate()
-print(json)```
-
-Output:
-
-```{
-  "id" : "1uTih9ZU1yJcIEFsVFHSoYelf32NPHssVR8eqLUGk",
-  "isActive" : true,
-  "name" : "qiMkyHIthSfxkdx2TbICDVq5KuxvBavZwkqrYpbXUXTIxIOlGXTrIyiZgpraF"
-}```
-
-Optionally provide JSON generation options
-
-```let json: String = try User.generate(options: .init(stringLength: 3...5))
 print(json)
 ```
 
 Output:
 
-```{
+```json
+{
+  "id" : "1uTih9ZU1yJcIEFsVFHSoYelf32NPHssVR8eqLUGk",
+  "isActive" : true,
+  "name" : "qiMkyHIthSfxkdx2TbICDVq5KuxvBavZwkqrYpbXUXTIxIOlGXTrIyiZgpraF"
+}
+```
+
+Optionally provide JSON generation options
+
+```swift
+let json: String = try User.generate(options: .init(stringLength: 3...5))
+print(json)
+```
+
+Output:
+
+```json
+{
   "id" : "yhGf",
   "isActive" : true,
   "name" : "Ldc"
-}```
+}
+```
 
 ## 🧠 How It Works
 
